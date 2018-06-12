@@ -8,9 +8,11 @@ RUN \curl -sSL https://get.rvm.io | bash -s stable
 ## Setup user, project, and workdir
 RUN useradd -d /home/aerogear -G rvm aerogear
 WORKDIR /home/aerogear
-USER aerogear
+# USER aerogear
 RUN source /etc/profile.d/rvm.sh
-RUN git clone https://github.com/aerogear/aerogear.org aerogear
+# RUN git clone https://github.com/aerogear/aerogear.org aerogear
+
+COPY . /home/aerogear/aerogear
 
 WORKDIR /home/aerogear/aerogear
 
